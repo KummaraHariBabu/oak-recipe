@@ -8,25 +8,43 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
     console.log("form submitted");
+    const storedUser = localStorage.getItem("user");
+    const existingUser = storedUser ? JSON.parse(storedUser) : [];
+    const newUser = { name, email };
+    const updatedUser = [...existingUser, newUser];
+    localStorage.setItem("user", JSON.stringify(updatedUser));
     setName(""); // Clears the input field after submission
+    console.log(localStorage.getItem("user"))
     setEmail("");
   };
 
   return (
     <div className="login-wrapper">
-      <form className="form-wrapper" onSubmit={submitHandler}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <div className="form-wrapper">
+        <form onSubmit={submitHandler}>
+          <div className="input-wrapper">
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };
