@@ -1,0 +1,38 @@
+@mixin displayView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper {
+  height: 100vh;
+  background: url("https://picsum.photos/1600/900") no-repeat center / cover;
+  @include displayView; // Parentheses removed
+}
+
+.form-wrapper {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(226, 160, 160, 0.6); // Use rgba for opacity
+  @include displayView; // Parentheses removed
+  input,
+  button {
+    border: none;
+    outline: none;
+    padding: 4px;
+    background-color: transparent;
+  }
+  input {
+    width: 80%;
+    border-bottom: 1px solid;
+  }
+  button {
+    padding: 4px 10px;
+    background-color: orange;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+}
