@@ -1,0 +1,39 @@
+@mixin displayFlow() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-wrapper {
+  margin: 16px 0 0 0;
+  @include displayFlow;
+  gap: 32px;
+  padding: 10px;
+}
+.search-wrapper {
+  @include displayFlow;
+
+  padding: 10px;
+  input,
+  select,
+  button {
+    padding: 5px;
+    border: none;
+    outline: none;
+  }
+  select {
+    margin: 5px 0 0 5px;
+  }
+  button {
+    background-color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0 0 5px;
+    color: orange;
+  }
+  button:hover {
+    background-color: orangered;
+    color: black;
+  }
+}

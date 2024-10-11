@@ -1,9 +1,26 @@
-import React from 'react'
+import React from "react";
+import defaultImg from "../../assets/foodImg.avif";
+import "./card.scss";
+import { useNavigate } from "react-router-dom";
 
-const Card = () => {
+const Card = ({ recipes }) => {
+  const navigate = useNavigate();
   return (
-    <div>Card</div>
-  )
-}
+    <div className="card-wrapper">
+      {recipes.map(({ recipe }, index) => {
+        let { label, image } = recipe;
+        return (
+          <div className="card" key={index}>
+            <h1>{label}</h1>
+            <img src={image ? image : defaultImg} alt="Food" />
+            <button onClick={() => navigate("detail", { state: recipe })}>
+              More Detail
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-export default Card
+export default Card;
