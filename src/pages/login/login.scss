@@ -2,18 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .login-wrapper {
-  height: 100vh;
+  min-height: 90vh;
+  gap: 15px;
+  padding: 20px 0;
   background: url("https://picsum.photos/1600/900") no-repeat center / cover;
   @include displayView; // Parentheses removed
-
+  h1 {
+    color: adjust-color(#000000, $red: 1, $green: 2, $blue: 3);
+  }
   .form-wrapper {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    flex-direction: column;
     background-color: rgba(226, 160, 160, 0.5); // Use rgba for opacity
     color: #333333;
     letter-spacing: 2px;
@@ -23,23 +27,28 @@
       @include displayView;
       flex-direction: column;
       gap: 10px;
+      width: 100%;
       .input-wrapper {
         @include displayView;
         flex-direction: column;
         gap: 5px;
+        width: 100%;
       }
-
-      input[type="text"] {
+      input[type="text"],
+      input[type="email"] {
         text-indent: 3px;
+        width: 80%;
+        padding: 3px;
+      }
+      input[type="text"] {
         text-transform: capitalize;
       }
       input[type="email"] {
-        text-indent: 3px;
         text-transform: lowercase;
       }
 
       button {
-        padding: 4px 10px;
+        padding: 8px 25px;
         background-color: orange;
         border-radius: 4px;
         border: none;
@@ -47,6 +56,24 @@
       }
       button:hover {
         background-color: olivedrab;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-wrapper {
+    .form-wrapper {
+      width: 250px;
+      height: 250px;
+      form {
+        input[type="text"],
+        input[type="email"] {
+          padding: 1px;
+        }
+        button {
+          padding: 4px 10px;
+        }
       }
     }
   }

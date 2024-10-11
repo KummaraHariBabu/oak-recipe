@@ -6,11 +6,13 @@ import Login from "../pages/login/Login";
 import About from "../pages/about/About";
 import Detail from "../pages/detail/Detail";
 import PrivateRouter from "./PrivateRouter";
-
+ import "./approuter.scss";
+ 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <NavBar />
+      <div className="routes">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
@@ -21,6 +23,9 @@ const AppRouter = () => {
           <Route path="" element={<Detail />} />
         </Route>
       </Routes>
+
+      </div>
+
     </BrowserRouter>
   );
 };

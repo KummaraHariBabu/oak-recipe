@@ -1,0 +1,47 @@
+.about-container {
+  padding: 20px;
+  color: #333;
+  text-align: start;
+
+  h1 {
+    color: navy;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  ul {
+    list-style-type: "→";
+    margin-left: 20px;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-container {
+    h1{
+        font-size: 22px;
+    }
+    p {
+      font-size: 15px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+    ul {
+      li {
+        font-size: 15px;
+      }
+    }
+  }
+}

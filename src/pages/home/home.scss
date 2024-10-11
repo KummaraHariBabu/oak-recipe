@@ -3,8 +3,15 @@
   height: 500px;
   mix-blend-mode: multiply;
 }
+.warning {
+    color: red;
+}
 @media screen and (max-width: 768px) {
   .food-image {
     height: 300px;
   }
+  .warning {
+    color: red;
+    font-size: 25px;
+}
 }

@@ -13,7 +13,7 @@
 @mixin st_nu_in {
   display: flex;
   text-align: start;
-  gap: 10px;
+  gap: 20px;
   flex-direction: column;
   font-style: italic;
 }
@@ -55,10 +55,13 @@ $headerColor: maroon;
     .tags,
     .nutrients,
     .meal-image,
-    .ingredients {
+    .ingredients,
+    .ingredient-values {
       @include bg_pd;
     }
     .nutrients {
+      width: 30%;
+      height: 375px;
       @include st_nu_in;
       h4 {
         @include tt_ta_c;
@@ -71,9 +74,21 @@ $headerColor: maroon;
       }
     }
     .ingredients {
+      width: 97%;
       @include st_nu_in;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
       h4 {
         @include tt_ta_c;
+      }
+      .ingredient-values {
+        padding: 0;
+        gap: 30px;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        flex-direction: column;
       }
     }
   }
@@ -143,6 +158,7 @@ $headerColor: maroon;
 
       .ingredients {
         width: 100%;
+        flex-direction: column;
         p {
           font-size: 15px;
         }
