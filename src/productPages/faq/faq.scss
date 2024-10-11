@@ -1,0 +1,23 @@
+.faq-wrapper {
+  width: 100%;
+
+  .fqi-details {
+    text-wrap: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    border-bottom: 1px solid;
+    text-align: start;
+    padding: 10px;
+    line-height: 1.8;
+  }
+}
+@media screen and (max-height: 768px) {
+  .faq-wrapper {
+    width: 100%;
+    .fqi-details {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+}
