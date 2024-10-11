@@ -45,18 +45,22 @@ const Detail = () => {
             ))}
           </p>
         </div>
-        <div className="meal-image">
-          <img src={meal} alt="meal" />
-        </div>
+
         <div className="ingredients">
-          <h4>ingregients</h4>
-          {state.ingredientLines.map((ingredient, index) => (
-            <div>
-              <p key={index}>
-                {index + 1} - {ingredient}
-              </p>
-            </div>
-          ))}
+          <div className="ingredient-values">
+            <h4>ingregients</h4>
+            {state.ingredientLines.map((ingredient, index) => (
+              <div>
+                <p key={index}>
+                  {index + 1} - {ingredient}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="meal-image">
+            <img src={meal} alt="meal" />
+          </div>
         </div>
       </div>
       <div className="btn-wrappers">

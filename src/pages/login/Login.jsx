@@ -14,12 +14,14 @@ const Login = () => {
     const updatedUser = [...existingUser, newUser];
     localStorage.setItem("user", JSON.stringify(updatedUser));
     setName(""); // Clears the input field after submission
-    console.log(localStorage.getItem("user"))
+    console.log(localStorage.getItem("user"));
     setEmail("");
   };
 
   return (
     <div className="login-wrapper">
+      <h1>Login</h1>
+
       <div className="form-wrapper">
         <form onSubmit={submitHandler}>
           <div className="input-wrapper">
@@ -30,6 +32,7 @@ const Login = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
           <div className="input-wrapper">
@@ -40,6 +43,7 @@ const Login = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <button type="submit">Login</button>

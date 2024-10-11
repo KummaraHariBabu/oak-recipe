@@ -47,7 +47,7 @@ const Home = () => {
 
       {/* If there are no results, display a message */}
       {recipes?.length === 0 && (
-        <h1>Sorry, no recipes found. Try another search term.</h1>
+        <h1 className="warning">Sorry, no recipes found. Try another search term.</h1>
       )}
 
       {/* If there are recipes, display the Card component */}
