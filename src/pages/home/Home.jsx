@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./home.css";
+import "./home.scss";
 import axios from "axios";
 import Header from "../../components/header/Header";
 import Card from "../../components/card/Card";
-
+import noFood from "../../assets/waitForFood.jpg"
 const Home = () => {
   const [query, setQuery] = useState("egg");
   const [selectedMeal, setSelectedMeal] = useState("breakfast");
@@ -41,8 +41,10 @@ const Home = () => {
         mealTypes={mealTypes}
         getData={getData}
       />
-      <Card />
-    </div>
+      {!recipes && <img src={noFood} alt="food" className="food-image"/>}
+      {recipes?.length === 0 && <h1>Sorry, try another Food Name</h1>}
+      {recipes?.length > 0 && <Card recipes={recipes} /> }
+     </div>
   );
 };
 

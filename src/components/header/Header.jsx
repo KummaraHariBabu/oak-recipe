@@ -17,12 +17,13 @@ const Header = ({
     <div className="header-wrapper">
       <h1>Reciepe App</h1>
       <div className="search-wrapper">
-        <form  onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler}>
           <input
             type="text"
             placeholder="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            required
           />
           <button type="submit">Search</button>
           <select
