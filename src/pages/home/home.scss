@@ -1,11 +1,10 @@
 .food-image {
-    width: 500px;
-    height: 500px;
+  width: 80%;
+  height: 500px;
+  mix-blend-mode: multiply;
 }
 @media screen and (max-width: 768px) {
-    .food-image {
-        width: 300px;
-        height: 300px;
-    }
-    
+  .food-image {
+    height: 300px;
+  }
 }

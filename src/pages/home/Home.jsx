@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./home.scss";
 import axios from "axios";
 import Header from "../../components/header/Header";
 import Card from "../../components/card/Card";
-import noFood from "../../assets/waitForFood.jpg"
-const Home = () => {
-  const [query, setQuery] = useState("egg");
-  const [selectedMeal, setSelectedMeal] = useState("breakfast");
-  const [recipes, setRecipes] = useState([]);
+import noFood from "../../assets/waitForFood.jpg";
 
-  //mealtypes 
-  const mealTypes = ["Breakfast","Lunch","Dinner","Snacks","Tea Time"]
+const Home = () => {
+  const [query, setQuery] = useState("");
+  const [selectedMeal, setSelectedMeal] = useState("");
+  const [recipes, setRecipes] = useState(null); // Initially, recipes is set to null
+  // Meal types
+  const mealTypes = ["Breakfast", "Lunch", "Dinner", "Snacks", "Tea Time"];
   const appId = process.env.REACT_APP_API_ID;
   const appKey = process.env.REACT_APP_API_KEY;
 
@@ -21,15 +21,11 @@ const Home = () => {
   const getData = async () => {
     try {
       const { data } = await axios(url);
-      setRecipes(data.hits);
+      setRecipes(data.hits); // Set recipes based on API response
     } catch (error) {
       console.error("Error", error);
     }
   };
-  console.log(recipes);
-//   useEffect(() => {
-//     getData();
-//   }, []); // Add dependency array to avoid infinite requests
 
   return (
     <div>
@@ -41,10 +37,22 @@ const Home = () => {
         mealTypes={mealTypes}
         getData={getData}
       />
-      {!recipes && <img src={noFood} alt="food" className="food-image"/>}
-      {recipes?.length === 0 && <h1>Sorry, try another Food Name</h1>}
-      {recipes?.length > 0 && <Card recipes={recipes} /> }
-     </div>
+
+      {/* If recipes is null, show the no food image */}
+      {recipes === null && (
+        <div>
+          <img src={noFood} alt="No food available" className="food-image" />
+        </div>
+      )}
+
+      {/* If there are no results, display a message */}
+      {recipes?.length === 0 && (
+        <h1>Sorry, no recipes found. Try another search term.</h1>
+      )}
+
+      {/* If there are recipes, display the Card component */}
+      {recipes?.length > 0 && <Card recipes={recipes} />}
+    </div>
   );
 };
 

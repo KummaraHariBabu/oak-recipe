@@ -10,8 +10,8 @@ const Card = ({ recipes }) => {
       {recipes.map(({ recipe }, index) => {
         let { label, image } = recipe;
         return (
-          <div className="card">
-            <h1 key={index}>{label}</h1>
+          <div className="card" key={index}>
+            <h1>{label}</h1>
             <img src={image ? image : defaultImg} alt="Food" />
             <button onClick={() => navigate("detail", { state: recipe })}>
               More Detail
