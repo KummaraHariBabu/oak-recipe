@@ -21,7 +21,7 @@ const Footer = () => {
 
         <div className="footer-section">
           <h4>Try Products</h4>
-          <a href="/nutrition-wizard">Nutrition Wizard</a>
+          <a href="/nutrition-analysis">Nutrition Wizard</a>
           <a href="/recipe-search">Recipe Search</a>
         </div>
 
